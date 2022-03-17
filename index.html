@@ -5,12 +5,120 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">
   <title>Dice Game</title>
 </head>
 <body>
-  <h1>DICE GAME</h1>
 
+  <div class="containerglobal">
 
+    <!-- HEADER : TITRE / HISTOIRE / NOM & SCORE PLAYERS / ICONE BATTLE -->
+    <div class="conatinerhaut">
+
+      <h1>DICE GAME</h1>
+      <p>THE GAME IS : " "</p>
+      <p>L'heureux vainqueur obtiendra la propriété du fare ! <br>
+        Bonne chance camarade !
+      </p>
+        
+      <div class="containerplayer">
+        <div>
+          <p id="blockplayer1">"PLAYER 1"</p>
+          <p id="score-value-container-P1">"SCORE DYNAMIQUE"</p>
+        </div>
+        
+        <div id ="">
+          <img src="./ressources/logo battle.png">
+        </div>
+        
+        <div class="player2">
+          <p id="blockplayer2">"PLAYER 2"</p>
+          <p>"SCORE DYNAMIQUE"</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GAME : BACKGROUND GAME / BUTTONS / IDLES PLAYERS / MENU -->
+
+    <div class="containergame">
+
+      <!-- Background / Buttons -->
+      <div class="backgroundgame" id="backgroundgame">
+
+        <img src="./ressources/Fond back.png" alt="background" class="imgbackground">
+        <button type="button" class="btnnewgame" id="btnnewgame">
+         <img src="./ressources/btn new game.png">
+        </button>
+        <button type="button" class="btnrolldice" id="btnrolldice">
+         <img src="./ressources/btn rolldice.png">
+        </button>
+        <button type="button" class="btnhold" id="btnhold">
+         <img src="./ressources/btn hold.png">
+        </button>
+
+      </div>
+
+         <!-- MENU -->
+      <div class="containermenu">
+        <div id="testwinner" class="testwinner"></div>
+          <!-- Start -->
+        <div class="testwinner id="testwinner"></div>
+        <img src="./ressources/Menu.png" alt="menu" class="menu">
+        <p>MENU</p>
+        <ul class="limenu"">
+          <li id="start">Commencer une partie</li>
+          <li id="replay">Rejouer</li>
+          <li id="leave">Quitter</li>
+        </ul>
+          <!-- Input -->
+        <div class="menuinputplayer">
+          <input type="text" id="inputplayer1" placeholder="Player 1">
+          <input type="text" id="inputplayer2" placeholder="Player 2">
+          <button type="button" id="btninputok" class="btninputok">
+            <img src="./ressources/btn ok.png">
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BARRE DE TACHE : CURRENT / DICE  -->
+    
+    <div class="containerscoreround">
+      <div>
+        <p>CURRENT</p>
+        <p id="current-value-container-P1"></p>
+      </div>
+
+      <div id="containerdice">
+        <img id="img_dice" src="./ressources/Dice0.png">
+      </div>
+
+      <div>
+        <p>CURRENT</p>
+        <p></p>
+      </div>
+    
+    </div>
+    
+   
+ 
+
+    
+    
+<!--
+    <div class="containeridles">
+      <img src="./ressources/" id="idles1">
+      <img src="./ressources/" id="idles2">
+    </div>
+
+ 
+  </div>  
+  <iframe class="epee" id="epee" src="https://embed.lottiefiles.com/animation/23664"></iframe>
+  
+-->
+    
 
 
   <script src="script.js"></script>

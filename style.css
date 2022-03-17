@@ -1,0 +1,125 @@
+body{
+  margin : 0 100px;
+  font-family: 'Grandstander', cursive;
+  background-color: rgb(56, 58, 66);
+}
+.containerglobal{
+ /* border: 3px;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin: 80px;
+  font-size: 30px;
+  /*filter: drop-shadow(0 0 0.75rem black);*/
+}
+.conatinerhaut{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  font-size: 60px;
+  letter-spacing: 3px;
+}
+p{
+  text-align: center;
+}
+.imgbackground{
+  margin: 0 30px;
+  width: 900px;
+  height: 700px;
+  filter: drop-shadow(0 0 0.30rem black)
+}
+.containerplayer{
+  margin: 50px;
+  width: 1300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.containerscoreround{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 800px;
+  height: 180px;
+  background-color: lightgray;
+  filter: drop-shadow(0 0 0.30rem black)
+}
+
+.backgroundgame{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* BUTTON BACK*/
+
+.btnrolldice, .btnhold, .btnnewgame, .btninputok{
+  border: none;
+  background-color: transparent ;
+  cursor: pointer;
+}
+.btnrolldice, .btnhold, .btnnewgame{
+  position: absolute;
+}
+.btnnewgame{
+  top: 50px;
+  right: 60px;
+}
+.btnrolldice{
+  right: 350px;
+  bottom: 5px;
+}
+.btnhold{
+  right: 120px;
+  bottom: 5px;
+}
+
+
+/* MENU */
+
+li{
+  height: 50px;
+  min-width: 350px;
+  cursor: pointer;
+}
+.containergame{
+  position: relative;
+}
+.containermenu{
+  position: absolute;
+  top: 200px;
+  left: 180px;
+}
+.containermenu > p , .menu, .limenu, .menuinputplayer, .testwinner{
+  position: absolute;
+  color: white;
+}
+.limenu, .menuinputplayer{
+  left: 100px;
+  top: 120px;
+}
+.containermenu > p{
+  top: 40px;
+  left: 270px;
+}
+.menuinputplayer{
+  display: none;
+}
+.limenu{
+  display: block;
+}
+.testwinner{
+  position: absolute;
+}
+/*.imgwin{
+  position: absolute;
+}
+/* DICE */
+

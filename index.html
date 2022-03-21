@@ -14,73 +14,78 @@
 
     <!-- HEADER : TITRE / HISTOIRE / NOM & SCORE PLAYERS / ICONE BATTLE -->
     <div class="conatinerhaut">
-
       <h1>DICE GAME</h1>
       <p>THE GAME IS : " "</p>
       <p>L'heureux vainqueur obtiendra la propriété du fare ! <br>
         Bonne chance camarade !
       </p>
-        
       <div class="containerplayer">
         <div>
-          <p id="blockplayer1">"PLAYER 1"</p>
-          <p id="score-value-container-P1">"SCORE DYNAMIQUE"</p>
+          <p id="blockplayer1">PLAYER 1</p>
+          <p id="score-value-container-P1">0</p>
         </div>
-        
         <div id ="">
           <img src="./ressources/logo battle.png">
         </div>
-        
         <div class="player2">
-          <p id="blockplayer2">"PLAYER 2"</p>
-          <p>"SCORE DYNAMIQUE"</p>
+          <p id="blockplayer2">PLAYER 2</p>
+          <p id="score-value-container-P2">0</p>
         </div>
       </div>
-
     </div>
 
+    <button type="button" id="btn-random-player">RANDOM PLAYER</button>
     <!-- GAME : BACKGROUND GAME / BUTTONS / IDLES PLAYERS / MENU -->
-
     <div class="containergame">
-
       <!-- Background / Buttons -->
       <div class="backgroundgame" id="backgroundgame">
-
         <img src="./ressources/Fond back.png" alt="background" class="imgbackground">
-        <button type="button" class="btnnewgame" id="btnnewgame">
+        <button type="button" class="btnnewgame" id="btn-new-game">
          <img src="./ressources/btn new game.png">
         </button>
-        <button type="button" class="btnrolldice" id="btnrolldice">
+        <button type="button" class="btnrolldice" id="btn-roll-dice">
          <img src="./ressources/btn rolldice.png">
         </button>
-        <button type="button" class="btnhold" id="btnhold">
+        <button type="button" class="btnhold" id="btn-hold">
          <img src="./ressources/btn hold.png">
         </button>
-
       </div>
 
-         <!-- MENU -->
+                               <!-- CONTAINER DES MENUS-->
       <div class="containermenu">
-        <div id="testwinner" class="testwinner"></div>
-          <!-- Start -->
-        <div class="testwinner id="testwinner"></div>
-        <img src="./ressources/Menu.png" alt="menu" class="menu">
-        <p>MENU</p>
-        <ul class="limenu"">
-          <li id="start">Commencer une partie</li>
-          <li id="replay">Rejouer</li>
-          <li id="leave">Quitter</li>
-        </ul>
-          <!-- Input -->
-        <div class="menuinputplayer">
-          <input type="text" id="inputplayer1" placeholder="Player 1">
-          <input type="text" id="inputplayer2" placeholder="Player 2">
-          <button type="button" id="btninputok" class="btninputok">
-            <img src="./ressources/btn ok.png">
-          </button>
+                               <!-- START MENU -->
+        <div id="block-winner" class="block-winner"></div>
+        <div class="menu-start">
+          <img src="./ressources/Menu01.png" alt="menu" class="img-menu-start">
+          <button type="button" class="btnstart"></button>
+        </div>
+        
+                             <!-- INPUT PLAYER -->
+        <div class="container-menu-input-player">
+          <img src="./ressources/MenuInput.png" class="img-menu-input">
+          <div class="menu-input-btnok">
+            <input type="text" id="inputplayer1" class="inputplayer1" placeholder="PLAYER 1">
+            <input type="text" id="inputplayer2" class="inputplayer2" placeholder="PLAYER 2">
+            <button type="button" id="btninputok" class="btninputok">
+              <img src="./ressources/btn ok.png">
+            </button>
+          </div>
         </div>
       </div>
-
+   
+      <div class="block-idles-grid">
+        <div class="div-idlesP1"></div>
+        <div class="div-idlesP2"></div>
+        <div class="div-idles-profile-P2"></div>
+        <div class="div-idles-profile-P1"></div>
+        <div class="div-idles-profile-attack-P2"></div>
+        <div class="div-idles-profile-attack-P1"></div>
+        <div class="div-idles-back-P1"></div>
+        <div class="div-idles-back-P2"></div>
+        <div class="div-idles-dead-P1"></div>
+        <div class="div-idles-dead-P2"></div>
+      </div>
+      
     </div>
 
     <!-- BARRE DE TACHE : CURRENT / DICE  -->
@@ -97,30 +102,11 @@
 
       <div>
         <p>CURRENT</p>
-        <p></p>
+        <p id="current-value-container-P2"></p>
       </div>
     
     </div>
     
-   
- 
-
-    
-    
-<!--
-    <div class="containeridles">
-      <img src="./ressources/" id="idles1">
-      <img src="./ressources/" id="idles2">
-    </div>
-
- 
-  </div>  
-  <iframe class="epee" id="epee" src="https://embed.lottiefiles.com/animation/23664"></iframe>
-  
--->
-    
-
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

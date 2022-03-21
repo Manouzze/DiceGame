@@ -1,7 +1,8 @@
 body{
   margin : 0 100px;
   font-family: 'Grandstander', cursive;
-  background-color: rgb(56, 58, 66);
+  background-color: white;
+  /*background-color: rgb(56, 58, 66);*/
 }
 .containerglobal{
  /* border: 3px;*/
@@ -32,6 +33,7 @@ p{
   margin: 0 30px;
   width: 900px;
   height: 700px;
+  pointer-events: none;
   filter: drop-shadow(0 0 0.30rem black)
 }
 .containerplayer{
@@ -58,14 +60,14 @@ p{
   position: relative;
 }
 
-/* BUTTON BACK*/
+/* BUTTONS*/
 
-.btnrolldice, .btnhold, .btnnewgame, .btninputok{
+.btnrolldice, .btnhold, .btnnewgame, .btninputok, .btnstart, .inputplayer1, .inputplayer2{
   border: none;
   background-color: transparent ;
   cursor: pointer;
 }
-.btnrolldice, .btnhold, .btnnewgame{
+.btnrolldice, .btnhold, .btnnewgame, .btnstart{
   position: absolute;
 }
 .btnnewgame{
@@ -74,52 +76,147 @@ p{
 }
 .btnrolldice{
   right: 350px;
-  bottom: 5px;
+  bottom: 1px;
 }
 .btnhold{
   right: 120px;
-  bottom: 5px;
+  bottom: 1px;
+}
+.btnstart{
+  height: 50px;
+  min-width: 150px;
+  top: 240px;
+  left: 210px;
+  transform: rotate(-8deg);
 }
 
+/* INPUTS*/
+.inputplayer2{
+  transform: rotate(8deg);
+}
+.inputplayer1{
+  transform: rotate(-8deg);
+}
+.inputplayer1, .inputplayer2{
+margin: 8px;
+width: 140px;
+font-family: 'Grandstander', cursive;
+font-size: 20px;
+color: white;
+}
 
 /* MENU */
 
-li{
-  height: 50px;
-  min-width: 350px;
-  cursor: pointer;
-}
 .containergame{
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .containermenu{
+  display: flex;
+  justify-content: center;
   position: absolute;
-  top: 200px;
+  top: 150px;
   left: 180px;
 }
-.containermenu > p , .menu, .limenu, .menuinputplayer, .testwinner{
+.containermenu > p , .container-menu-input-player, .testwinner{
   position: absolute;
   color: white;
 }
-.limenu, .menuinputplayer{
-  left: 100px;
-  top: 120px;
-}
-.containermenu > p{
-  top: 40px;
-  left: 270px;
-}
-.menuinputplayer{
+
+.container-menu-input-player{
   display: none;
 }
-.limenu{
+
+.menu-start{
   display: block;
+}
+
+.containermenu{
+display: block;
 }
 .testwinner{
   position: absolute;
 }
-/*.imgwin{
+.menu-input-btnok{
+  width: 400px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   position: absolute;
+  top: 270px;
+  left: 60px;
 }
-/* DICE */
 
+/*--------------PERSONNAGES-----------------*/
+
+.block-idles-grid{
+  position: absolute;
+  display: grid;
+  width: 900px;
+  height: 500px;
+  pointer-events: none;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(5,1fr);
+  
+}
+
+.div-idlesP1, .div-idlesP2, .div-idles-profile-P1, .div-idles-profile-P2, .div-idles-profile-progress-P1, .div-idles-profile-progress-P2, .div-idles-back-P1, .div-idles-back-P2, .div-idles-dead-greeting-P1,.div-idles-dead-greeting-P2{
+  width: 150px;
+  height: 135px;
+  animation: run 1s steps(30) infinite;
+}
+.div-idles-profile-P1, .div-idles-profile-P2, .div-idles-profile-progress-P1, .div-idles-profile-progress-P2, .div-idles-profile-attack-P1, .div-idles-profile-attack-P2 ,.div-idles-back-P1, .div-idles-back-P2, .div-idles-dead-P1, .div-idles-dead-P2,.div-idles-dead-greeting-P1,.div-idles-dead-greeting-P2{
+  display: none;
+}
+.div-idlesP1, .div-idlesP2, .div-idles-profile-P1, .div-idles-profile-P2, .div-idles-profile-attack-P1, .div-idles-profile-attack-P2, .div-idles-dead-P1, .div-idles-dead-P2,.div-idles-profile-progress-P2,.div-idles-profile-progress-P1{
+  grid-row: 4;
+}
+.div-idlesP2, .div-idles-profile-P2{
+  grid-column: 5;
+}
+.div-idles-profile-attack-P1, .div-idles-profile-attack-P2, .div-idles-back-P1, .div-idles-back-P2, .div-idles-dead-P1, .div-idles-dead-P2, .div-idles-dead-greeting-P1, .div-idles-dead-greeting-P2{
+  grid-column: 3;
+}
+
+.div-idlesP1{
+  background: url(./ressources/player1-start.png) no-repeat;
+  grid-column: 1;
+ }
+.div-idlesP2{
+  background: url(./ressources/player2-start.png) no-repeat;
+}
+.div-idles-profile-P2{
+  background: url(./ressources/player2.png) no-repeat;
+}
+.div-idles-profile-P1{
+  background: url(./ressources/player1.png) no-repeat;
+  grid-column: 1;
+}
+.div-idles-profile-attack-P1{
+  background: url(./ressources/P1ProfilAttack.png) no-repeat;
+}
+.div-idles-profile-attack-P2{
+  background: url(./ressources/P2ProfilAttack.png) no-repeat;
+}
+.div-idles-back-P1{
+  background: url(./ressources/player1-back.png) no-repeat;
+  grid-row: 3;
+}
+.div-idles-back-P2{
+  background: url(./ressources/player2-back.png) no-repeat;
+  grid-row: 3;
+}
+.div-idles-dead-P1{
+  background: url(./ressources/P1Dead.png) no-repeat;
+}
+.div-idles-dead-P2{
+  background: url(./ressources/P2Dead.png) no-repeat;
+}
+
+@keyframes run {
+  100%{
+    background-position: -4096px, 0 ;} 
+}

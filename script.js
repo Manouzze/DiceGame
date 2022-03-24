@@ -1,4 +1,3 @@
-
 const btnStartMenu = document.querySelector('.btnstart')
 const btninputok = document.getElementById('btninputok')
 const blockplayer1 = document.getElementById('blockplayer1')
@@ -23,7 +22,6 @@ let arrayScoreTotalP1 = []
 let currentValueP1 = 0
 let scoreValueP1 = 0
 
-
 let arrayCurrentP2 = []
 let arrayScoreTotalP2 = []
 let currentValueP2 = 0
@@ -33,9 +31,7 @@ let scoreValueP2 = 0
 let randomIndex = 0      // random dice roll
 let randomPlayer = 0    // the starting player
 
-
 // ----- * RANDOM PLAYERS * -----
-
 function randomPlayers(){
   randomPlayer = Math.floor(Math.random()*(2 - 0) + 1)
   console.log(randomPlayer)
@@ -46,7 +42,6 @@ function rollDice(){
   randomIndex = Math.floor(Math.random()*(6 - 1) + 1);
   img_dice.src="./ressources/Dice"+randomIndex+".png";
 }
-
 
 // ----- * MENU : start game * -----
 btnStartMenu.addEventListener('click', function(){
@@ -61,7 +56,6 @@ let player2="PLAYER 2";
 //---- * * MENU : input players name * -----
 btninputok.addEventListener('click', function(){
   if (inputplayer1.value && inputplayer2.value){
-    console.log('cest plein')
     player1 = inputplayer1.value
     player2 = inputplayer2.value
   }
@@ -70,12 +64,8 @@ btninputok.addEventListener('click', function(){
   menuinputplayer.style.display='none'
   blockplayer1.innerHTML = player1
   blockplayer2.innerHTML = player2
-  playerGreeting2.style.display="none"
-  playerGreeting1.style.display="none"
-  playerProfile1.style.display="block"
-  playerProfile2.style.display="block"
-  playerProfile1.style.gridColumn="1"
-  playerProfile2.style.gridColumn="10"
+  profilePlayer1()
+  profilePlayer2()
   randomPlayers()
   if (randomPlayer === 1){
     divInfo.innerHTML = `${player1} commence la partie`
@@ -84,17 +74,13 @@ btninputok.addEventListener('click', function(){
   }
 })
 
-
 // ----- * SWITCH PLAYER * -----
 function switchPlayer(){
-  //question ? premiere condition : deuxieme condition
-  //randomPlayer === 1 ? randomPlayer = 2 : randomPlayer = 1
   if (randomPlayer === 1){
     randomPlayer = 2
   } else
     randomPlayer = 1
 }
-
 
 //----- * DICE : LANCER LES DES * -----
 btnRollDice.addEventListener('click',()=>{
@@ -110,7 +96,6 @@ btnRollDice.addEventListener('click',()=>{
       //divInfo.innerHTML = `${player1} vous etes tombé sur un 1`
       divInfo.innerHTML = `${player1} vous êtes tombé sur un 1 !!!`
       switchPlayer()
-     // divInfo.innerHTML = ` Switch vers ${player2}`
     } else{
       arrayCurrentP1.push(randomIndex);
       currentValueP1 = arrayCurrentP1.reduce((previousValue, currentValue) => 
@@ -125,10 +110,8 @@ btnRollDice.addEventListener('click',()=>{
       currentValueP2 = 0
       currentValueContainerP2.innerHTML = "0"
       console.log('vous etes tombé sur un 1')
-     // divInfo.innerHTML = `${player2} vous etes tombé sur un 1`
       divInfo.innerHTML = `${player2} vous êtes tombé sur un 1 !!!`
       switchPlayer()
-      //divInfo.innerHTML = ` Switch vers ${player1}`
     } else{
       arrayCurrentP2.push(randomIndex);
       currentValueP2 = arrayCurrentP2.reduce((previousValue2, currentValue2) => 
@@ -149,21 +132,15 @@ btnHold.addEventListener('click',function(){
     0);
     scoreValueContainerP1.innerHTML = scoreValueP1
     if(scoreValueP1 >= 5){
-      playerProfile1.style.display="block"
-      playerProfile1.style.gridColumn="3"
+      profileProgressPlayer1()
     } 
     if (scoreValueP1 >= 10){
-      imgSwordPlayer1()  
+      PlayerAttack1()
     }
-    if (scoreValueP1 >= 15){
-      SwordPlayer1.style.display = "none"   
-      playerBack1.style.display = "block"     
-    }
-    if (scoreValueP1 >= 20 ){
+    if (scoreValueP1 >= 15 ){
       console.log('Gagné joueur 1')
-      playerBack1.style.display = "none"  
-      playerBack2.style.display = "none"  
-      imgWinPlayer1()
+      PlayerWinner1()
+      PlayerDead2()
       endGame()
     } 
     else{
@@ -181,21 +158,15 @@ btnHold.addEventListener('click',function(){
     0);
     scoreValueContainerP2.innerHTML = scoreValueP2
     if (scoreValueP2 >= 5){
-      playerProfile2.style.display="block"  
-      playerProfile2.style.gridColumn="8"   
+      profileProgressPlayer2()  
     }
     if (scoreValueP2 >= 10){
-      imgSwordPlayer2()
+      PlayerAttack2()
     }
-    if (scoreValueP2 >= 15){
-      SwordPlayer2.style.display = "none"
-      playerBack2.style.display = "block"     
-    }
-    if (scoreValueP2 >= 20 ){
+    if (scoreValueP2 >= 15 ){
       console.log('Gagné joueur 2')
-      playerBack2.style.display = "none" 
-      playerBack1.style.display = "none"
-      imgWinPlayer2()
+      PlayerWinner2()
+      PlayerDead1()
       endGame()
     } 
     else{
@@ -224,6 +195,7 @@ btnNewGame.addEventListener('click', function(){
   menuinputplayer.style.display='none'
   menuStart.style.display="block";
   imgwin.style.display="none"
+  location.reload();
 })
 
 //----- * FUNCTION RESET * -----
@@ -240,66 +212,64 @@ function reset() {
   currentValueContainerP2.innerHTML = "0"
   scoreValueContainerP1.innerHTML ="0"
   scoreValueContainerP2.innerHTML ="0"
-  playerGreeting1.style.display="block"
-  playerGreeting1.style.gridColumn ="1"
-  playerGreeting1.style.gridRow ="2"
-  playerGreeting2.style.display="block"
-  playerGreeting2.style.gridColumn ="10"
-  playerGreeting2.style.gridRow ="2"
-  playerDead1.style.display = "none"
-  playerDead2.style.display = "none"  
-  SwordPlayer1.style.display = "none" 
-  SwordPlayer2.style.display = "none"
-  playerProfile1.style.display="none"
-  playerProfile2.style.display="none"
   blockplayer1.innerHTML ="PLAYER 1" 
   blockplayer2.innerHTML ="PLAYER 2" 
   divInfo.innerHTML = "Bonne chance !"
   inputplayer1.value = ""
   inputplayer2.value = ""
-  player1="PLAYER 1";
   player2="PLAYER 2";
+  player1="PLAYER 1";
+  
+ 
 }
 
 //----- * IMG PERSONNAGES * -----
+
 playerGreeting1 = document.querySelector('.div-idlesP1')
 playerGreeting2 = document.querySelector('.div-idlesP2')
-playerProfile1 = document.querySelector('.div-idles-profile-P1')
-playerProfile2 = document.querySelector('.div-idles-profile-P2')
-SwordPlayer1 = document.querySelector('.div-idles-profile-attack-P1')
-SwordPlayer2 = document.querySelector('.div-idles-profile-attack-P2')
-playerBack1 = document.querySelector('.div-idles-back-P1')
-playerBack2 = document.querySelector('.div-idles-back-P2')
-playerDead1 = document.querySelector('.div-idles-dead-P1')
-playerDead2 = document.querySelector('.div-idles-dead-P2')
 
-
-function imgSwordPlayer1(){ 
-  playerProfile1.style.display ="none"
-  SwordPlayer1.style.display = "block"  
-
+//----- * FUNCTION PERSONNAGE * -----
+//----- *  PLAYER 1  * -----
+function profilePlayer1() {
+  playerGreeting1.style.background="url(ressources/player1.png)"
+  playerGreeting1.classList.add('profil-player1')
 }
-function imgSwordPlayer2(){
-  playerProfile2.style.display="none"
-  SwordPlayer2.style.display = "block"  
- }
-
-function imgWinPlayer1(){
-  SwordPlayer2.style.display = "none" 
-  playerGreeting1.style.display="block"
-  playerGreeting1.style.gridColumn ="5"
-  playerGreeting1.style.gridRow ="1"
-  playerDead2.style.display = "block"
-  playerProfile2.style.display="none"
+function profileProgressPlayer1() {
+  playerGreeting1.style.background="url(ressources/player1.png)"
+  playerGreeting1.classList.add('profil-progress-player1')
 }
-function imgWinPlayer2(){
-  SwordPlayer1.style.display = "none" 
-  playerGreeting2.style.display="block"
-  playerGreeting2.style.gridColumn ="6"
-  playerGreeting2.style.gridRow ="1"
-  playerDead1.style.display = "block"
-  playerProfile1.style.display="none"
+function PlayerAttack1() {
+  playerGreeting1.style.background="url(ressources/P1ProfilAttack.png)"
+  playerGreeting1.classList.add('profil-attack-player1')
 }
+function PlayerWinner1() {
+  playerGreeting1.style.background="url(ressources/player1-start.png)"
+  playerGreeting1.classList.add('profilWinnerPlayer1')
+}
+function PlayerDead1(){
+  playerGreeting1.style.background="url(ressources/P1Dead.png)"
+  playerGreeting1.classList.add('profilDeadPlayer1')
+}
+//----- *  PLAYER 2  * -----
 
-
+function profilePlayer2() {
+  playerGreeting2.style.background="url(ressources/player2.png)"
+  playerGreeting2.classList.add('profil-player2')
+}
+function profileProgressPlayer2() {
+  playerGreeting2.style.background="url(ressources/player2.png)"
+  playerGreeting2.classList.add('profil-progress-player2')
+}
+function PlayerAttack2(){
+  playerGreeting2.style.background="url(ressources/P2ProfilAttack.png)"
+  playerGreeting2.classList.add('profil-attack-player2')
+}
+function PlayerWinner2(){
+  playerGreeting2.style.background="url(ressources/player2-start.png)"
+  playerGreeting2.classList.add('profilWinnerPlayer2')
+}
+function PlayerDead2(){
+  playerGreeting2.style.background="url(ressources/P2Dead.png)"
+  playerGreeting2.classList.add('profilDeadPlayer2')
+}
 

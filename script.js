@@ -30,26 +30,22 @@ let scoreValueP2 = 0
 // ----- * Values Random* -----
 let randomIndex = 0      // random dice roll
 let randomPlayer = 0    // the starting player
-
 // ----- * RANDOM PLAYERS * -----
 function randomPlayers(){
   randomPlayer = Math.floor(Math.random()*(2 - 0) + 1)
   console.log(randomPlayer)
 }
-
 // ----- * RANDOM DICE ROLLS * -----
 function rollDice(){
   randomIndex = Math.floor(Math.random()*(6 - 1) + 1);
   img_dice.src="./ressources/Dice"+randomIndex+".png";
 }
-
 // ----- * MENU : start game * -----
 btnStartMenu.addEventListener('click', function(){
   reset()
   menuStart.style.display="none";
   menuinputplayer.style.display='flex'
 })
-
 let player1 = "PLAYER 1";
 let player2="PLAYER 2";
 
@@ -59,7 +55,6 @@ btninputok.addEventListener('click', function(){
     player1 = inputplayer1.value
     player2 = inputplayer2.value
   }
-
   menuStart.style.display="none";
   menuinputplayer.style.display='none'
   blockplayer1.innerHTML = player1
@@ -84,9 +79,7 @@ function switchPlayer(){
 
 //----- * DICE : LANCER LES DES * -----
 btnRollDice.addEventListener('click',()=>{
-
   rollDice()
-
   if (randomPlayer === 1){ 
     if (randomIndex === 1){
       arrayCurrentP1 = []
@@ -124,7 +117,6 @@ btnRollDice.addEventListener('click',()=>{
 
 //----- *ENREGISTER LE SCORE * -----
 btnHold.addEventListener('click',function(){
-  
   if (randomPlayer === 1){
     arrayScoreTotalP1.push(currentValueP1);
     scoreValueP1 = arrayScoreTotalP1.reduce((previousValue, currentValue) => 
@@ -219,12 +211,9 @@ function reset() {
   inputplayer2.value = ""
   player2="PLAYER 2";
   player1="PLAYER 1";
-  
- 
 }
 
 //----- * IMG PERSONNAGES * -----
-
 playerGreeting1 = document.querySelector('.div-idlesP1')
 playerGreeting2 = document.querySelector('.div-idlesP2')
 

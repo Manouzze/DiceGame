@@ -5,9 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">
+  <meta name="description" content="DiceGame est un jeu de dés opposant deux joueurs combattant pour la propriété d'un superbe phare">
+  <link rel="icon" type="image/png" href="./ressources/logo battle.png">
   <title>Dice Game</title>
 </head>
 <body>
@@ -16,15 +17,15 @@
 
     <!-- HEADER : TITRE / HISTOIRE -->
     <div class="container-presentation" >
-      <h1>DICE GAME</h1>
-      <p>THE GAME IS : "LE PHARE"</p>
-      <p>L'heureux vainqueur obtiendra la propriété du fare ! <br>
+      <h1 class="fs-1 fw-bold">DICE GAME</h1>
+      <h2 class="fs-4">THE GAME IS : "LE PHARE"</h2>
+      <p class="fs-6 text-center">L'heureux vainqueur obtiendra la propriété du fare ! <br>
         Bonne chance camarade !
       </p>
     </div>
     
     <!-- NOM & SCORE PLAYERS / ICONE BATTLE -->
-    <div class="container-scores">
+    <div class="container-scores fs-4">
       <div>
         <p id="blockplayer1">PLAYER 1</p>
         <p id="score-value-container-P1">0</p>
@@ -63,7 +64,7 @@
         <div class="container-menu-input-player">
           <img src="./ressources/MenuInput.png" class="img-menu-input">
           <div class="menu-input-btnok">
-            <input type="text" id="inputplayer1" class="inputplayer1 " placeholder="PLAYER 1">
+            <input type="text" id="inputplayer1" class="inputplayer1" placeholder="PLAYER 1">
             <input type="text" id="inputplayer2" class="inputplayer2" placeholder="PLAYER 2">
             <button type="button" id="btninputok" class="btninputok">
               <img src="./ressources/btn ok.png" class="img-btn-ok">
@@ -90,7 +91,7 @@
     </div>
 
     <!-- BARRE DE TACHE : CURRENT / DICE  -->
-    <div class="container-score-round">
+    <div class="container-score-round fs-4">
       <div>
         <p>CURRENT</p>
         <p id="current-value-container-P1"></p>
@@ -107,7 +108,6 @@
     <!-- BARRE INFO / IMG FOR MEDIA QUERIES-->
     <div>
       <p id="div-info" class="div-info"></p>
-      <!--<img src="./ressources/img-random-player.png" id="" class="">-->
     </div>
     <div>
       <img src="./ressources/mode-paysage1.png" class="mode-paysage1">

@@ -182,10 +182,14 @@ p{
   height: 120px;
   width: 165px;
 }
+
+/*-------------- ** ANIMATION ** -----------------*/
 @keyframes run {
   100%{
     background-position: -4096px, 0 ;} 
 }
+
+
 /*-------------- ** MEDIA QUERIES ** -----------------*/
 /* @media screen and (orientation: landscape){ */
 @media (max-width: 750px){

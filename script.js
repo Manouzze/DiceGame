@@ -1,3 +1,4 @@
+// ----- * SELECTORS* -----
 const btnStartMenu = document.querySelector('.btnstart')
 const btninputok = document.getElementById('btninputok')
 const blockplayer1 = document.getElementById('blockplayer1')
@@ -17,11 +18,13 @@ const img_dice = document.getElementById('img_dice');
 const divInfo = document.getElementById("div-info")
 
 // ----- * ARRAY : Value & Score* -----
+//P1
 let arrayCurrentP1 = []
 let arrayScoreTotalP1 = []
 let currentValueP1 = 0
 let scoreValueP1 = 0
 
+//P2
 let arrayCurrentP2 = []
 let arrayScoreTotalP2 = []
 let currentValueP2 = 0
@@ -30,22 +33,27 @@ let scoreValueP2 = 0
 // ----- * Values Random* -----
 let randomIndex = 0      // random dice roll
 let randomPlayer = 0    // the starting player
+
 // ----- * RANDOM PLAYERS * -----
+//Generate a random number between 1 and 2
 function randomPlayers(){
   randomPlayer = Math.floor(Math.random()*(2 - 0) + 1)
-  console.log(randomPlayer)
 }
 // ----- * RANDOM DICE ROLLS * -----
+//Generate a random number between 1 and 6 and change img's dice
 function rollDice(){
   randomIndex = Math.floor(Math.random()*(6 - 1) + 1);
   img_dice.src="./ressources/Dice"+randomIndex+".png";
 }
+
 // ----- * MENU : start game * -----
 btnStartMenu.addEventListener('click', function(){
-  reset()
+  reset();
   menuStart.style.display="none";
   menuinputplayer.style.display='flex'
 })
+
+//Init player value by default values
 let player1 = "PLAYER 1";
 let player2="PLAYER 2";
 
@@ -85,8 +93,7 @@ btnRollDice.addEventListener('click',()=>{
       arrayCurrentP1 = []
       currentValueP1 = 0
       currentValueContainerP1.innerHTML = "0"
-      console.log('vous etes tombé sur un 1')
-      //divInfo.innerHTML = `${player1} vous etes tombé sur un 1`
+      //console.log('vous etes tombé sur un 1')
       divInfo.innerHTML = `${player1} vous êtes tombé sur un 1 !!!`
       switchPlayer()
     } else{
